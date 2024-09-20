@@ -7,6 +7,7 @@ import { ThemeProvider } from "./components/providers/ThemeProvider";
 import { Item } from './types';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { sortItems } from './utils/sortItems';
 
 export const App = () => {
 
@@ -66,21 +67,15 @@ export const App = () => {
 	
 	  const onItemDoneToggle = async (id: number, isDone: boolean) => {
 		try {
-			setItems(prevItems =>
-				prevItems.map(item =>
-					item.id === id ? { ...item, isDone: true } : item
-				)
-			);
-	
-			const response = await axios.patch(`http://localhost:3000/items/${id}/done`);
-			const updatedItem = response.data;
-	
-			
-			console.log("updatedItem: ", updatedItem);
+			// Custom server endpoint 	
 		} catch (error) {
 			console.error('Error updating item status:', error);
 		}
 	};
+
+	const sortedItems = sortItems(items);
+    const todoItems = items.length;
+    const doneItems = items.filter(item => item.isDone).length;
 
 	return (
     <ThemeProvider>
@@ -88,12 +83,12 @@ export const App = () => {
             <Layout>
                 <Header onItemAdd={onItemAdd}>To Do app</Header>
                 <List 
-				items={items}
+				items={sortedItems}
 				onItemLabelEdit={onItemLabelEdit}
 				onItemDoneToggle={onItemDoneToggle}
 				onItemDelete={onItemDelete}
 				/>
-                <Footer />
+                <Footer todoItems={todoItems} doneItems={doneItems}/>
             </Layout>
         </Container>
     </ThemeProvider>

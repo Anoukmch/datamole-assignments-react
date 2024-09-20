@@ -33,7 +33,7 @@ export const ListItemWrapper = (props: ListItemWrapperProp) => {
                     label={item.label}
                     isDone={item.isDone}
                     onItemLabelEdit={() => setShowForm(true)}
-                    onItemDoneToggle={() => onItemDoneToggle(item.id, item.isDone)}
+                    onItemDoneToggle={(isDone) => onItemDoneToggle(item.id, isDone)}
                     onItemDelete={() => onItemDelete (item.id)}
                 />
 			)}
