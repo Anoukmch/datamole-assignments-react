@@ -67,11 +67,20 @@ export const App = () => {
 	
 	  const onItemDoneToggle = async (id: number, isDone: boolean) => {
 		try {
-			// Custom server endpoint 	
-		} catch (error) {
-			console.error('Error updating item status:', error);
-		}
+			const response = await axios.patch(`http://localhost:3000/items/${id}`, {
+			  isDone: isDone,
+			});
+			setItems((prevItems) =>
+			  prevItems.map((item) =>
+				item.id === id ? { ...item, isDone: isDone } : item
+			  )
+			);
+		  } catch (error) {
+			console.error('Error updating done status:', error);
+		  }
 	};
+
+	
 
 	const sortedItems = sortItems(items);
     const todoItems = items.length;
