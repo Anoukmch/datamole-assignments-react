@@ -25,11 +25,24 @@ export const App = () => {
 		fetchData();
 	}, []);
 
+	const onItemAdd = async (label: string) => {
+		try {
+			const newItem = {
+				label: label,
+				isDone: false,
+			};
+			const response = await axios.post('http://localhost:3000/items', newItem);
+			setItems(prevItems => [...prevItems, response.data]);
+		} catch (error) {
+			console.error('Error adding data:', error);
+		}
+	};
+
 	return (
     <ThemeProvider>
         <Container>
             <Layout>
-                <Header onItemAdd={() => console.warn("unimplemented")}>To Do app</Header>
+                <Header onItemAdd={onItemAdd}>To Do app</Header>
                 <List items={items}/>
                 <Footer />
             </Layout>

@@ -1,6 +1,7 @@
 import { PlusIcon } from "@radix-ui/react-icons";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Form } from "./form/Form";
 
 const StyledDiv = styled.header`
     display: flex;
@@ -27,13 +28,29 @@ type HeaderProps = {
 
 export const Header = (props: HeaderProps) => {
     const { children, onItemAdd } = props;
+	const [showForm, setShowForm] = useState(false);
+
+	const handleFormSubmit = (label: string) => {
+		onItemAdd(label);
+		setShowForm(false);
+	};
 
     return (
         <StyledDiv>
             <h1>{children}</h1>
-            <button>
-                <PlusIcon />
-            </button>
+
+			<div>
+			{!showForm ? (	
+            	<button onClick={() => setShowForm(true)}><PlusIcon /></button>
+			) : (
+				<Form
+					initialValue=""
+					onSubmit={handleFormSubmit}
+					onCancel={() => setShowForm(false)}
+				/>
+			)}
+			</div>
+
         </StyledDiv>
     );
 };
