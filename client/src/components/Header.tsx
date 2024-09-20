@@ -26,7 +26,7 @@ type HeaderProps = {
 };
 
 export const Header = (props: HeaderProps) => {
-    const { children } = props;
+    const { children, onItemAdd } = props;
 
     return (
         <StyledDiv>
