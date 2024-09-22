@@ -14,7 +14,6 @@ export const ListItemWrapper = (props: ListItemWrapperProp) => {
 	const { item, onItemLabelEdit, onItemDoneToggle, onItemDelete } = props;
 	const [showForm, setShowForm] = useState(false);
 
-
 	const handleFormSubmit = (label: string) => {
         onItemLabelEdit(item.id, label);
         setShowForm(false);

@@ -36,7 +36,7 @@ export const App = () => {
 			console.log("newItem: ", response.data);
 			setItems(prevItems => [...prevItems, response.data]);
 		} catch (error) {
-			console.error('Error adding data:', error);
+			console.error('Error adding item:', error);
 		}
 	};
 	
@@ -51,7 +51,7 @@ export const App = () => {
 				)
 			);
 		} catch (error) {
-			console.error('Error updating label:', error);
+			console.error('Error updating item label:', error);
 		}
 	};
 	
@@ -60,7 +60,7 @@ export const App = () => {
 		  await axios.delete(`http://localhost:3000/items/${id}`);
 		  setItems(prevItems => prevItems.filter(item => item.id !== id));
 		} catch (error) {
-		  console.error('Error deleting todo:', error);
+		  console.error('Error deleting item:', error);
 		}
 	  };
 	
@@ -81,7 +81,7 @@ export const App = () => {
 	};
 
 	const sortedItems = sortItems(items);
-    const todoItems = items.length;
+    const todoItems = items.filter(item => !item.isDone).length;
     const doneItems = items.filter(item => item.isDone).length;
 
 	return (
