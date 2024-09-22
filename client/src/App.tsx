@@ -65,7 +65,7 @@ export const App = () => {
 	  };
 	
 	
-	  const onItemDoneToggle = async (id: number, isDone: boolean) => {
+	const onItemDoneToggle = async (id: number, isDone: boolean) => {
 		try {
 			const response = await axios.patch(`http://localhost:3000/items/${id}`, {
 			  isDone: isDone,
@@ -79,8 +79,6 @@ export const App = () => {
 			console.error('Error updating done status:', error);
 		  }
 	};
-
-	
 
 	const sortedItems = sortItems(items);
     const todoItems = items.length;

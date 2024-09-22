@@ -2,6 +2,7 @@ import { PlusIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Form } from "./form/Form";
+import { Button } from "./ui/Button";
 
 const StyledDiv = styled.header`
     display: flex;
@@ -41,7 +42,7 @@ export const Header = (props: HeaderProps) => {
 
 			<div>
 			{!showForm ? (	
-            	<button onClick={() => setShowForm(true)}><PlusIcon /></button>
+            	<Button onClick={() => setShowForm(true)}><PlusIcon /></Button>
 			) : (
 				<Form
 					initialValue=""
