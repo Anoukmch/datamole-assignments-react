@@ -6,6 +6,8 @@ import { Button } from "./ui/Button";
 
 const StyledDiv = styled.header`
     display: flex;
+	justify-content: space-between;
+	align-items: center;
 
     button {
         all: unset;
@@ -19,6 +21,10 @@ const StyledDiv = styled.header`
         border-radius: 50%;
 
         color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
     }
 `;
 
