@@ -9,4 +9,3 @@ export const sortItems = (items: Item[]): Item[] => {
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     });
 };
-

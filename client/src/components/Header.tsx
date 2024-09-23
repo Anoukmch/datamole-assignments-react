@@ -45,19 +45,17 @@ export const Header = (props: HeaderProps) => {
     return (
         <StyledDiv>
             <h1>{children}</h1>
-
 			<div>
-			{!showForm ? (	
-            	<Button onClick={() => setShowForm(true)}><PlusIcon /></Button>
-			) : (
-				<Form
-					initialValue=""
-					onSubmit={handleFormSubmit}
-					onCancel={() => setShowForm(false)}
-				/>
-			)}
+				{!showForm ? (	
+            		<Button onClick={() => setShowForm(true)}><PlusIcon /></Button>
+				) : (
+					<Form
+						initialValue=""
+						onSubmit={handleFormSubmit}
+						onCancel={() => setShowForm(false)}
+					/>
+				)}
 			</div>
-
         </StyledDiv>
     );
 };

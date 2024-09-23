@@ -33,7 +33,6 @@ export const App = () => {
 				isDone: false,
 			};
 			const response = await axios.post('http://localhost:3000/items', newItem);
-			console.log("newItem: ", response.data);
 			setItems(prevItems => [...prevItems, response.data]);
 		} catch (error) {
 			console.error('Error adding item:', error);
@@ -90,10 +89,10 @@ export const App = () => {
             <Layout>
                 <Header onItemAdd={onItemAdd}>To Do app</Header>
                 <List 
-				items={sortedItems}
-				onItemLabelEdit={onItemLabelEdit}
-				onItemDoneToggle={onItemDoneToggle}
-				onItemDelete={onItemDelete}
+					items={sortedItems}
+					onItemLabelEdit={onItemLabelEdit}
+					onItemDoneToggle={onItemDoneToggle}
+					onItemDelete={onItemDelete}
 				/>
                 <Footer todoItems={todoItems} doneItems={doneItems}/>
             </Layout>

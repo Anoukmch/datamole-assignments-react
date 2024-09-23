@@ -27,8 +27,7 @@ export const Form = (props: FormProps) => {
             }}
             onReset={() => {
                 onCancel();
-            }}
-        >
+            }} >
             <Input value={inputValue} onValueChange={(value) => setInputValue(value)} />
 			<Button type="submit">
                 <CheckIcon />
