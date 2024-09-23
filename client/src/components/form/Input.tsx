@@ -13,7 +13,7 @@ export const Input = (props: InputProps) => {
     return (
         <InputStyled
             value={value}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const value = e.currentTarget.value;
                 onValueChange(value);
             }}

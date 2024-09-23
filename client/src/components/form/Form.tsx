@@ -21,7 +21,7 @@ export const Form = (props: FormProps) => {
 
     return (
         <FormStyled
-            onSubmit={(e) => {
+            onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
                 e.preventDefault();
                 onSubmit(inputValue);
             }}
