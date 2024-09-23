@@ -7,7 +7,7 @@ import { ThemeProvider } from "./components/providers/ThemeProvider";
 import { Item } from './types';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { sortItems } from './utils/sortItems';
+import { useSortedItems } from './utils/useSortedItems';
 
 export const App = () => {
 
@@ -79,7 +79,7 @@ export const App = () => {
 		  }
 	};
 
-	const sortedItems = sortItems(items);
+	const sortedItems = useSortedItems(items);
     const todoItems = items.filter(item => !item.isDone).length;
     const doneItems = items.filter(item => item.isDone).length;
 
