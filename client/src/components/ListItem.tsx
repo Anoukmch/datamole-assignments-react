@@ -18,15 +18,18 @@ const StyledDiv = styled.div`
 const Label = styled.label`
     margin-left: 15px;
     flex-grow: 1;
+	font-weight: bold;
 `;
 
 const ActionButtons = styled.div`
     display: none;
     margin-left: 10px;
+	gap: 10px;
     
     ${StyledDiv}:hover & {
         display: flex;
     }
+
 `;
 
 export type ListItemProp = {

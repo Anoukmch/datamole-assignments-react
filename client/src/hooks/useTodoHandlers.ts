@@ -24,7 +24,7 @@ export const useTodoHandlers = () => {
 	};
 
 	fetchData();
-}, []);
+	}, []);
 
 	/**
 	* Adds a new item to the list.

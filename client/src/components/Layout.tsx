@@ -16,6 +16,13 @@ export const Layout = styled.main`
     border-color: ${(props) => props.theme.colors.olive6};
     border-radius: 5px;
 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background-color: ${(props) => props.theme.colors.olive1};
+    }
+
   > *:nth-child(2) {
     flex-grow: 1;
   }

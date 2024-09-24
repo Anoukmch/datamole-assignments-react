@@ -9,6 +9,8 @@ const theme = {
         ...olive,
         ...grass,
         ...blackA,
+		customColor1: '#FF5733',
+        customColor2: '#C70039', 
     },
 };
 
