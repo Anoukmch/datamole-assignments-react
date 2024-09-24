@@ -7,7 +7,7 @@ import { Footer } from "../Footer";
 import { Item } from '../../types';
 
 const meta = {
-    title: "Layout with To-Do List",
+    title: "Layout",
     component: Layout,
 } as Meta<typeof Layout>;
 
