@@ -4,11 +4,13 @@ import { List } from "./components/List";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/providers/ThemeProvider";
-import { Item } from './types';
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import { useSortedItems } from './utils/useSortedItems';
 import { useTodoHandlers } from './hooks/useTodoHandlers';
+
+/**
+ * App component that serves as the main entry point for the Todo application.
+ * Handles fetching, adding, editing, deleting, and toggling items.
+ */
 
 export const App = () => {
 

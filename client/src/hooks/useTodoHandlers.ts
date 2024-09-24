@@ -8,6 +8,11 @@ const API_URL = 'http://localhost:3000/items';
 export const useTodoHandlers = () => {
 	const [items, setItems] = useState<Item[]>([]);
 
+	/**
+ 	* Fetches data from the backend API and updates the items state.
+ 	* Entry point with the server-side
+ 	*/
+
   	useEffect(() => {
 	const fetchData = async () => {
 		try {
@@ -20,6 +25,10 @@ export const useTodoHandlers = () => {
 
 	fetchData();
 }, []);
+
+	/**
+	* Adds a new item to the list.
+	*/
 
 	const onItemAdd = async (label: string) => {
 		try {
@@ -34,6 +43,11 @@ export const useTodoHandlers = () => {
 		}
 	};
 
+	/**
+	* Edits the label of an existing item.
+	* 
+	*/
+
 	const onItemLabelEdit = async (id: number, newLabel: string) => {
 		try {
 			await axios.patch(`${API_URL}/${id}`, { label: newLabel });
@@ -47,6 +61,10 @@ export const useTodoHandlers = () => {
 		}
 	};
 
+	/**
+	 * Deletes an item from the list.
+	 */
+
 	const onItemDelete = async (id: number) => {
 		try {
 			await axios.delete(`${API_URL}/${id}`);
@@ -56,6 +74,9 @@ export const useTodoHandlers = () => {
 		}
 	};
 
+	/**
+	 * Toggles the 'done' status of an item using the custom end-point
+	 */
 
 	const onItemDoneToggle = async (id: number, isDone: boolean) => {
 		try {

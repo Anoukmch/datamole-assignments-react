@@ -1,5 +1,4 @@
 import { Pencil1Icon, TrashIcon } from "@radix-ui/react-icons";
-import React from "react";
 import styled from "styled-components";
 import { Checkbox } from "./Checkbox";
 import { Button } from "./ui/Button";
