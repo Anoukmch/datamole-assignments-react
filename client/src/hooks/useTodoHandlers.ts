@@ -45,7 +45,6 @@ export const useTodoHandlers = () => {
 
 	/**
 	* Edits the label of an existing item.
-	* 
 	*/
 
 	const onItemLabelEdit = async (id: number, newLabel: string) => {
