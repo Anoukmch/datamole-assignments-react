@@ -8,7 +8,7 @@ const ListStyled = styled.div`
 	margin-top: 10px;
 `;
 
-export type ListProp = {
+export type ListProp = {	
 	items: Item[];
 	onItemLabelEdit: (id: number, label: string) => void;
     onItemDoneToggle: (id: number, isDone: boolean) => void;
