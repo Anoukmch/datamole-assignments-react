@@ -3,7 +3,7 @@ import { Item } from '../types';
 import React, { useState } from "react";
 import { Form } from "./form/Form";
 
-export type ListItemWrapperProp = {
+type ListItemWrapperProp = {
 	item: Item;
 	onItemLabelEdit: (id: number, label: string) => void;
     onItemDoneToggle: (id: number, isDone: boolean) => void;

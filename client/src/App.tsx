@@ -8,6 +8,7 @@ import { Item } from './types';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useSortedItems } from './utils/useSortedItems';
+import { fetchItems } from './utils/api';
 
 export const App = () => {
 
@@ -66,9 +67,10 @@ export const App = () => {
 	
 	const onItemDoneToggle = async (id: number, isDone: boolean) => {
 		try {
-			const response = await axios.patch(`http://localhost:3000/items/${id}`, {
-			  isDone: isDone,
-			});
+			if (!isDone) return;
+
+			const response = await axios.patch(`http://localhost:3000/items/${id}/done`);
+
 			setItems((prevItems) =>
 			  prevItems.map((item) =>
 				item.id === id ? { ...item, isDone: isDone } : item

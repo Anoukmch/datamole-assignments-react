@@ -43,7 +43,7 @@ export const ListItem = (props: ListItemProp) => {
 
     return (
         <StyledDiv>
-            <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
+            <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} disabled={isDone} />
             <Label>{label}</Label>
 			<ActionButtons>
             	<Button onClick={onItemLabelEdit}>
