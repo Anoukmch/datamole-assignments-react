@@ -3,13 +3,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Item } from "../types";
 
+const API_URL = 'http://localhost:3000/items';
+
 export const useTodoHandlers = () => {
 	const [items, setItems] = useState<Item[]>([]);
 
   	useEffect(() => {
 	const fetchData = async () => {
 		try {
-			const response = await axios.get('http://localhost:3000/items');
+			const response = await axios.get(API_URL);
 			setItems(response.data);
 		} catch (error) {
 			console.error('Error fetching data:', error);
@@ -25,7 +27,7 @@ export const useTodoHandlers = () => {
 				label: label,
 				isDone: false,
 			};
-			const response = await axios.post('http://localhost:3000/items', newItem);
+			const response = await axios.post(API_URL, newItem);
 			setItems(prevItems => [...prevItems, response.data]);
 		} catch (error) {
 			console.error('Error adding item:', error);
@@ -34,9 +36,7 @@ export const useTodoHandlers = () => {
 
 	const onItemLabelEdit = async (id: number, newLabel: string) => {
 		try {
-			const response = await axios.patch(`http://localhost:3000/items/${id}`, {
-				label: newLabel,
-			});
+			await axios.patch(`${API_URL}/${id}`, { label: newLabel });
 			setItems(prevItems =>
 				prevItems.map(item =>
 					item.id === id ? { ...item, label: newLabel } : item
@@ -49,8 +49,8 @@ export const useTodoHandlers = () => {
 
 	const onItemDelete = async (id: number) => {
 		try {
-		await axios.delete(`http://localhost:3000/items/${id}`);
-		setItems(prevItems => prevItems.filter(item => item.id !== id));
+			await axios.delete(`${API_URL}/${id}`);
+			setItems(prevItems => prevItems.filter(item => item.id !== id));
 		} catch (error) {
 		console.error('Error deleting item:', error);
 		}
@@ -61,7 +61,7 @@ export const useTodoHandlers = () => {
 		try {
 			if (!isDone) return;
 
-			const response = await axios.patch(`http://localhost:3000/items/${id}/done`);
+			const response = await axios.patch(`${API_URL}/${id}/done`);
 			setItems((prevItems) =>
 			prevItems.map((item) =>
 				item.id === id ? { ...item, isDone: isDone } : item
